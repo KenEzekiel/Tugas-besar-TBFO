@@ -1,3 +1,4 @@
+import time
 from cnf import CNF
 from pprint import pprint
 import inputreader
@@ -36,7 +37,7 @@ def CYKCheck(w):
 
             # Iterasi dari i sampai j + 1
             for k in range(i, j + 1):
-                if k + 1 >= n:
+                if k + 1 >= n or len(Back[i][k]) == 0 or len(Back[k + 1][j]) == 0:
                     continue
 
                 # Iterasi Production Rules
