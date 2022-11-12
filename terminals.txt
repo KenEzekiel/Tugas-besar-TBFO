@@ -1,0 +1,1 @@
+variable number \+= -= \*= \/= = \( \) { } \[ ] \.  true false string ' " ` ; break default for return var const delete function switch while case else if throw catch let try continue finally null comment newline mathexp \w
