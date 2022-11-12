@@ -4,7 +4,7 @@ import re
 class CNF:
     def __init__(self):
         self.rules: dict[str, list[list[str]]] = {}
-        self.start = 'S'
+        self.start = 'START'
 
     @staticmethod
     def get_var_name(i: int) -> str:

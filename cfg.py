@@ -127,7 +127,7 @@ class CFG:
         # substitusi semua rule yang berisi variabel dengan panjang 1
         keys = list(cnf.rules.keys())
         for key in keys:
-            value = cnf.rules[key]
+            value = cnf.rules[key][::]
             for right in value:
                 if len(right) == 1 and right[0].isupper():
                     to_sub = right[0]
