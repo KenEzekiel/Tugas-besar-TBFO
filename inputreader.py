@@ -14,7 +14,6 @@ def inputread(filename):
     terminals.append(' ')
     terminals.append(r'\n')
     regex = "|".join(map(lambda x: "(" + x + ")", terminals))
-    print(regex)
     w = re.sub(r'[ \t]+', ' ', w)
     w = re.sub(r'\n+', '\n', w)
 
