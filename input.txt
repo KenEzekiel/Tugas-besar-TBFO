@@ -1,3 +1,4 @@
-for ( var variable = mathexp ; mathexp ; mathexp )
-    { variable = mathexp ; break ; 
-    }
+for ( var variable = mathexp ; mathexp ; mathexp ){   
+
+    break;
+       }

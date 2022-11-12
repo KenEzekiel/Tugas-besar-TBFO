@@ -1,5 +1,6 @@
 from cnf import CNF
 from pprint import pprint
+import inputreader
 
 with open("./terminals.txt", 'r') as a:
     terminals = a.read().split()
@@ -55,6 +56,5 @@ def CYKCheck(w):
         print("False")
 
  
-with open("./input.txt", 'r') as f:
-    w = f.read().split()
+w = inputreader.inputread("input.txt")
 CYKCheck(w)
