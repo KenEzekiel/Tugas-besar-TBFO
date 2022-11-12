@@ -41,7 +41,7 @@ class CNF:
                     [" " if x == "space" else x for x in r.split()])
             self.rules[left] = rightList
 
-    def subtitute_all_postfix(self, postfix: list[str], replacement: str):
+    def subtitute_all_postfix(self, postfix, replacement: str):
         keys = list(self.rules.keys())
         for key in keys:
             value = self.rules[key]

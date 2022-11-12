@@ -27,7 +27,7 @@ class CFG:
                 alphabet = CNF.get_var_name(var_count)
                 var_count += 1
                 rules_map[key] = alphabet
-        print(rules_map)
+
         for key, value in self.rules.items():
             new_right = []
             for right in value:
