@@ -23,10 +23,11 @@ class CFG:
         rules_map = {}
 
         for key in self.rules:
-            if key != "S":
+            if key != "START":
                 alphabet = CNF.get_var_name(var_count)
                 var_count += 1
                 rules_map[key] = alphabet
+        print(rules_map)
         for key, value in self.rules.items():
             new_right = []
             for right in value:
@@ -43,12 +44,12 @@ class CFG:
         make_new_start = False
         for value in cnf.rules.values():
             for right in value:
-                if "S" in right:
+                if "START" in right:
                     make_new_start = True
                     break
         if make_new_start:
-            cnf.rules["S'"] = [["S"]]
-            cnf.start = "S'"
+            cnf.rules["START'"] = [["START"]]
+            cnf.start = "START'"
 
         # removes all epsilons
         for key, value in cnf.rules.items():
