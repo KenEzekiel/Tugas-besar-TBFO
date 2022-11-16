@@ -1,6 +1,5 @@
 import pprint
 import re
-from fa import check_fa
 
 
 space_reg = r'((?:return)|(?:var)|(?:let)|(?:const)|(?:delete)|(?:function)|(?:case))(?:\s+)((?:variable)|(?:mathexp))'

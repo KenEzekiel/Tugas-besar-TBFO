@@ -3,6 +3,7 @@ from cnf import CNF
 from pprint import pprint
 import inputreader
 import re
+from fa import tokenize_with_fa
 
 
 class CYK:
@@ -67,7 +68,8 @@ with open("input.txt", 'r') as f:
 
 with open("./terminals.txt", 'r') as a:
     terminals = a.read().split()
-
+res = tokenize_with_fa(w, terminals)
+print(res)
 function_check(w)
 
 terminals.append(' ')
