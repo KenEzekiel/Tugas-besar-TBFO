@@ -70,6 +70,7 @@ with open("./terminals.txt", 'r') as a:
     terminals = a.read().split()
 res = tokenize_with_fa(w, terminals)
 print(res)
+exit()
 function_check(w)
 
 terminals.append(' ')
