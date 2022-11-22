@@ -1,7 +1,4 @@
 from cfg import CFG
-from cnf import CNF
-import cyk
-import inputreader
 
 cfg = CFG()
 

@@ -23,30 +23,41 @@ def process_string(code: str):
                 num_newline += 1
                 if current != '`':
                     raise Exception(
-                        f'Invalid string at line {get_current_line(res, i + 1)}, string must not contain new line.')
+                        f'Invalid string at line {get_current_line(res, i)}, string must not contain new line.')
         elif char in strings:
             current = char
             start = i
         i += 1
     if current is not None:
         raise Exception(
-            f'Invalid string at line {get_current_line(res, start + 1)}, string must be closed.')
+            f'Invalid string at line {get_current_line(res, start)}, string must be closed.')
     return res
 
 
 def tokenize_with_fa(code: str, terminals: list[str]):
     terminals = terminals[::]
     terminals.remove('variable')
-    terminals.remove('mathexp')
-    terminals.remove('comment')
-    terminals.remove('newline')
+    terminals.remove('number')
     terminals.remove(r'\w')
 
     res = code
 
+    multiline_comment = r'\/\*[\w\W]*?\*\/'
+    iter = re.finditer(multiline_comment, res)
+    for match in iter:
+        res = res[:match.start()] + "\n" * res[match.start()
+                               :match.end()].count('\n') + res[match.end():]
+
+    # remove comment
+    res = re.sub(r'\/\/.*', '', res)
+
     # Process string -> any string will be replaced by character 1
     res = process_string(res)
-    print(res)
+
+    invalid_comment = re.finditer(r'\/\*', res)
+    for match in invalid_comment:
+        raise Exception(
+            f'Invalid comment at line {get_current_line(res, match.start())}, comment must be closed.')
 
     iter = re.finditer(
         r'([0-9]+(\.[0-9]+)+)|([0-9]+\.)|(\.[0-9]+)|([0-9]+(\.[0-9]+)*)', res)

@@ -37,8 +37,16 @@ class CNF:
                 self.start = left
             rightList = []
             for r in re.split(r' *\| *', right):
-                rightList.append(
-                    [" " if x == "space" else "\n" if x == "newline" else x for x in r.split()])
+                rule = []
+                for x in r.split():
+                    if x == "space":
+                        x = " "
+                    elif x == "newline":
+                        x = "\n"
+                    elif x == "or":
+                        x = "|"
+                    rule.append(x)
+                rightList.append(rule)
             self.rules[left] = rightList
 
     def subtitute_all_postfix(self, postfix, replacement: str):
