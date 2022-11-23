@@ -1,6 +1,4 @@
 from cnf import CNF
-import inputreader
-from fa import tokenize_with_fa, SyntaxError
 
 
 class CYK:
@@ -48,38 +46,3 @@ class CYK:
 
         # Cek apakah Start Rule S ada di indeks o, n-1 atau tidak
         return self.start in (Back[0][n-1])
-
-
-def function_check(w: str):
-    with open("./function_terminals.txt", 'r') as a:
-        function_terminals = a.read().split()
-    func_cyk = CYK("func_cnf.txt")
-    func_words = inputreader.inputread(w, function_terminals)
-    if not func_cyk.check(func_words):
-        print("Not a valid function")
-        exit()
-
-
-with open("input.txt", 'r') as f:
-    w = f.read()
-
-with open("./terminals.txt", 'r') as a:
-    terminals = a.read().split()
-try:
-    w = tokenize_with_fa(w, terminals)
-except SyntaxError as e:
-    print(e.message)
-    exit()
-function_check(w)
-
-terminals.append(' ')
-terminals.append(r'\n')
-cyk = CYK("cnf.txt")
-
-w = inputreader.preprocessing(w)
-words = inputreader.inputread(w, terminals)
-valid = cyk.check(words)
-if valid:
-    print("True")
-else:
-    print("False")

@@ -10,8 +10,6 @@ anjay ini panjang bet coy
 
 `;
 
-let 1bar;
-
 function aenjeaye(satu, dua, tiga) {
   let count = 1;
   while (true) {
