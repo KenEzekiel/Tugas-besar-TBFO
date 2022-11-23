@@ -1,0 +1,20 @@
+START' -> START START | N D | N H | Q L | O M | O P | C C | Q R
+START -> START START | N D | N H | Q L | O M | O P | C C | Q R
+A -> N D | N H
+B -> O K | B B | return | O P | Q L | O M | C C | Q G | START START | N D | N H | Q R
+C -> Q L | O M | O P | C C | Q R
+D -> O E
+E -> P F
+F -> Q G
+G -> B R
+H -> O I
+I -> P J
+J -> Q R
+K -> B P
+L -> START R
+M -> START P
+N -> function
+O -> (
+P -> )
+Q -> {
+R -> }
