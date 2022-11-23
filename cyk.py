@@ -1,9 +1,6 @@
-import time
 from cnf import CNF
-from pprint import pprint
 import inputreader
-import re
-from fa import tokenize_with_fa
+from fa import tokenize_with_fa, SyntaxError
 
 
 class CYK:
@@ -48,7 +45,7 @@ class CYK:
                             # Saat terminal ditemukan
                             if len(right) == 2 and right[0] in Back[i][k] and right[1] in Back[k + 1][j]:
                                 Back[i][j].add(left)
-        # pprint(Back)
+
         # Cek apakah Start Rule S ada di indeks o, n-1 atau tidak
         return self.start in (Back[0][n-1])
 
@@ -68,7 +65,11 @@ with open("input.txt", 'r') as f:
 
 with open("./terminals.txt", 'r') as a:
     terminals = a.read().split()
-w = tokenize_with_fa(w, terminals)
+try:
+    w = tokenize_with_fa(w, terminals)
+except SyntaxError as e:
+    print(e.message)
+    exit()
 function_check(w)
 
 terminals.append(' ')

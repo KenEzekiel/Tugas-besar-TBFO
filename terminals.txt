@@ -1,1 +1,1 @@
-variable number \+= -= \*= \/= \*\*= = \( \) { } \[ ] \/\/ \/\* \*\/ \. ; : \+ \* - \/ & \| break default for return var const delete function switch while case else if throw catch let try continue finally comment \w
+variable number \+= -= \*= \/= \*\*= = ! < > \( \) { } \[ ] \. ; , : \+ \* - \/ & or break default for return var const delete function switch while case else if throw catch let try continue finally

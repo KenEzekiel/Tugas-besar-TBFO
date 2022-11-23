@@ -1,8 +1,16 @@
 import re
 
 
+class SyntaxError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return self.message
+
+
 def get_current_line(code: str, idx: int):
-    return code[:idx].count('\n') + 1
+    return code[:idx+1].count('\n') + 1
 
 
 def process_string(code: str):
@@ -11,25 +19,30 @@ def process_string(code: str):
     start = None
     i = 0
     num_newline = 0
+
     strings = ['"', "'", '`']
     for char in code:
+        # ketemu penutup string
         if char == current:
             length = i - start
+            # mengganti string dengan karakter 1
             res = res[:start] + "1" + ('\n' * num_newline) + res[i+1:]
+            # adjustment index menyesuaikan panjang string dan banyak newline
             i -= length - num_newline
+            num_newline = 0
             current = None
         elif current is not None:
             if char == '\n':
                 num_newline += 1
                 if current != '`':
-                    raise Exception(
+                    raise SyntaxError(
                         f'Invalid string at line {get_current_line(res, i)}, string must not contain new line.')
         elif char in strings:
             current = char
             start = i
         i += 1
     if current is not None:
-        raise Exception(
+        raise SyntaxError(
             f'Invalid string at line {get_current_line(res, start)}, string must be closed.')
     return res
 
@@ -38,15 +51,13 @@ def tokenize_with_fa(code: str, terminals: list[str]):
     terminals = terminals[::]
     terminals.remove('variable')
     terminals.remove('number')
-    terminals.remove(r'\w')
 
     res = code
 
     multiline_comment = r'\/\*[\w\W]*?\*\/'
     iter = re.finditer(multiline_comment, res)
     for match in iter:
-        res = res[:match.start()] + "\n" * res[match.start()
-                               :match.end()].count('\n') + res[match.end():]
+        res = res[:match.start()] + "\n" * res[match.start()                                               :match.end()].count('\n') + res[match.end():]
 
     # remove comment
     res = re.sub(r'\/\/.*', '', res)
@@ -56,7 +67,7 @@ def tokenize_with_fa(code: str, terminals: list[str]):
 
     invalid_comment = re.finditer(r'\/\*', res)
     for match in invalid_comment:
-        raise Exception(
+        raise SyntaxError(
             f'Invalid comment at line {get_current_line(res, match.start())}, comment must be closed.')
 
     iter = re.finditer(
@@ -69,8 +80,8 @@ def tokenize_with_fa(code: str, terminals: list[str]):
         if num == '1':
             continue
         if num.count('.') > 1:
-            raise Exception(
-                f'Invalid number at line {get_current_line(res, match.start() + 1)}.')
+            raise SyntaxError(
+                f'Invalid number at line {get_current_line(res, match.start() + offset)}.')
         res = res[:match.start() + offset] + \
             '1' + res[match.end() + offset:]
         offset += 1 - len(num)
@@ -84,8 +95,8 @@ def tokenize_with_fa(code: str, terminals: list[str]):
         if var_str == '1':
             continue
         if re.match(r'[0-9][^0-9]+', var_str):
-            raise Exception(
-                f'Invalid variable name at line {get_current_line(res, match.start() + 1)}.')
+            raise SyntaxError(
+                f'Invalid variable name at line {get_current_line(res, match.start() + offset)}.')
 
         if var_str not in terminals:
             res = res[:match.start(1) + offset] + \

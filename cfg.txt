@@ -7,24 +7,24 @@ FOR -> for ( VARLETCONST SPACE VAR = MATHEXP SEMICOLON MATHEXP SEMICOLON MATHEXP
 RETURN -> return SPACE MATHEXP SEMICOLON | return SEMICOLON | e
 ASSIGNOPS -> = | += | -= | *= | /= | **=
 DELETE -> delete SPACE VAR SEMICOLON
-FUNCTION -> function SPACE VAR ( PARAM ) { OPTSTART } | function SPACE VAR ( ) { OPTSTART } 
-PARAM -> PARAM , PARAM | VAR | e
-SWITCH -> switch ( VAR ) { CASEDEFAULT }
-CASEDEFAULT -> CASEDEFAULT CASEDEFAULT | CASE | DEFAULT | 
+FUNCTION -> function SPACE variable ( PARAM ) { OPTSTART } | function SPACE variable ( ) { OPTSTART } braces
+PARAM -> PARAM , PARAM | variable | e
+ARGUMENT -> ARGUMENT , ARGUMENT | MATHEXP | e
+SWITCH -> switch ( MATHEXP ) { CASEDEFAULT }
+CASEDEFAULT -> CASEDEFAULT CASEDEFAULT | CASE | DEFAULT | e
 WHILE -> while ( MATHEXP ) { OPTSTART }	
 ELSE -> else { START } | else SPACE IF | e
 IF -> if ( MATHEXP ) { START } ELSE
-THROW -> throw SPACE VARMATHEXP SEMICOLON
+THROW -> throw SPACE MATHEXP SEMICOLON
 TRY -> try { OPTSTART } CATCH FINALLY | try { OPTSTART } CATCH | try { OPTSTART } FINALLY 
 FINALLY -> finally { OPTSTART }
-CASE -> case SPACE VARMATHEXP : { OPTSTART }
+CASE -> case SPACE MATHEXP : { OPTSTART }
 CATCH -> catch ( VAR ) { OPTSTART } 
-VAR -> variable
-VARMATHEXP -> VAR | MATHEXP
+VAR -> variable | VAR ( ARGUMENT ) | VAR . VAR | ( VAR )
 MATHEXP -> BRACKET VAR BRACKET | BRACKET NUMBER BRACKET | MATHEXP OPERATORS MATHEXP | VAR + + | VAR - -
 BRACKET -> BRACKET BRACKET | ( | ) | e
 SEMICOLON -> ; 
 SPACE -> SPACE SPACE | space | newline
-OPERATORS -> + | * | * * | - | / | & & | & | or or | or
+OPERATORS -> + | * | * * | - | / | & & | & | or or | or | = = | = = | ! = = | ! = | < | > | < = | > =
 NUMBER -> number
 DEFAULT -> default : { OPTSTART }
