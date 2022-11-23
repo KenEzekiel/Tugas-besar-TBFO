@@ -6,6 +6,8 @@ from cyk import CYK
 from colorama import Fore, Style
 import time
 
+os.system('color')
+
 cyk = CYK("./data/cnf.txt")
 func_cyk = CYK("./data/func_cnf.txt")
 
