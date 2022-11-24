@@ -1,0 +1,22 @@
+START' -> START START | N D | O D | P D | N H | O H | P H | S L | Q M | Q R | C C | S T
+START -> START START | N D | O D | P D | N H | O H | P H | S L | Q M | Q R | C C | S T
+A -> N D | O D | P D | N H | O H | P H
+B -> Q K | B B | break | continue | Q R | S L | Q M | C C | S G | START START | N D | O D | P D | N H | O H | P H | S T
+C -> S L | Q M | Q R | C C | S T
+D -> Q E
+E -> R F
+F -> S G
+G -> B T
+H -> Q I
+I -> R J
+J -> S T
+K -> B R
+L -> START T
+M -> START R
+N -> while
+O -> for
+P -> switch
+Q -> (
+R -> )
+S -> {
+T -> }

@@ -1,0 +1,5 @@
+const { name } = obj;
+
+const { age, id } = obj;
+
+const { name: personName } = obj;

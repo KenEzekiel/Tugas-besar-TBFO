@@ -10,3 +10,8 @@ cfg = CFG()
 cfg.load('./data/func_cfg.txt')
 cnf = cfg.to_cnf()
 cnf.dump("./data/func_cnf.txt")
+
+cfg = CFG()
+cfg.load('./data/loopnswitch_cfg.txt')
+cnf = cfg.to_cnf()
+cnf.dump("./data/loopnswitch_cnf.txt")

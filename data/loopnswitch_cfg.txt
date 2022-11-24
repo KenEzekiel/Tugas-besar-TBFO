@@ -1,0 +1,4 @@
+START -> START START | LNS | BRACES
+LNS -> while ( ) { LNSINSIDE } | for ( ) { LNSINSIDE } | switch ( ) { LNSINSIDE }
+LNSINSIDE -> { LNSINSIDE } | ( LNSINSIDE ) | BRACES | LNSINSIDE LNSINSIDE | break | continue | START
+BRACES -> { START } | ( START ) | { } | ( ) | BRACES BRACES | e
