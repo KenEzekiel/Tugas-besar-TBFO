@@ -57,7 +57,7 @@ def tokenize_with_fa(code: str, terminals: list[str]):
     multiline_comment = r'\/\*[\w\W]*?\*\/'
     iter = re.finditer(multiline_comment, res)
     for match in iter:
-        res = res[:match.start()] + "\n" * res[match.start()                                               :match.end()].count('\n') + res[match.end():]
+        res = res[:match.start()] + "\n" * res[match.start():match.end()].count('\n') + res[match.end():]
 
     # remove comment
     res = re.sub(r'\/\/.*', '', res)
@@ -86,10 +86,20 @@ def tokenize_with_fa(code: str, terminals: list[str]):
             '1' + res[match.end() + offset:]
         offset += 1 - len(num)
 
+    # change all true and false to 1
+    iter = re.finditer(
+        r'(?:[^a-zA-Z_$0-9]|^)((?:true)|(?:false))(?:[^a-zA-Z_$0-9]|$)', res)
+    offset = 0
+    for match in iter:
+        bool_str = match.group(1)
+        res = res[:match.start(1) + offset] + \
+            '1' + res[match.end(1) + offset:]
+        offset += 1 - len(bool_str)
+
     # make javascript variable regex
     offset = 0
     iter = re.finditer(
-        f'(?:^|[^a-zA-Z_$0-9])([a-zA-Z_$0-9]+)', res)
+        r'(?:^|[^a-zA-Z_$0-9])([a-zA-Z_$0-9]+)', res)
     for match in iter:
         var_str = match.group(1)
         if var_str == '1':

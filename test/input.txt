@@ -9,6 +9,7 @@ anjay ini panjang bet coy
 
 
 `;
+let a = false;
 
 function aenjeaye(satu, dua, tiga) {
   let count = 1;
