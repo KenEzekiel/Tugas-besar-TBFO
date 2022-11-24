@@ -2,11 +2,11 @@
 
 ## Table Of Contents
 
-* [Problem Description]{#problem-description}
-* [Project Summary]{project-summary}
-* [Members and Responsibilities]{#members-and-responsibilities}
-* [Program Structure]{program-structure}
-*
+* [Problem Description](#problem-description)
+* [Project Summary](#project-summary)
+* [Members and Responsibilities](#members-and-responsibilities)
+* [Program Structure](#program-structure)
+* [How To Run](#how-to-run)
 
 
 ## Problem Description 
