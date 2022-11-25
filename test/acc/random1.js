@@ -1,5 +1,5 @@
-const a = "Hello world!";
-if (a.length < 5) {
+const as = "Hello world!";
+if (as.length < 5) {
   console.log("lol");
 }
 
@@ -20,15 +20,15 @@ function aenjeaye(satu, dua, tiga) {
     }
   }
 
-  switch(a) {
+  switch (a) {
     case 1: {
-      console.log("babi");
+      console.log("maap");
     }
     default: {
       count++;
     }
   }
-  return (count);
+  return count;
 }
 
 for (let i = 1; i < 5; i++) {
