@@ -6,6 +6,8 @@ from cyk import CYK
 from colorama import Fore, Style
 import time
 
+os.system('color')
+
 print(f'''{Fore.MAGENTA}
  .d8b.  d88888b db   dD         d88b .d8888.      d8888b.  .d8b.  d8888b. .d8888. d88888b d8888b. 
 d8' `8b 88'     88 ,8P'         `8P' 88'  YP      88  `8D d8' `8b 88  `8D 88'  YP 88'     88  `8D 
@@ -15,7 +17,6 @@ d8' `8b 88'     88 ,8P'         `8P' 88'  YP      88  `8D d8' `8b 88  `8D 88'  Y
 YP   YP YP      YP   YD      Y8888P  `8888Y'      88      YP   YP 88   YD `8888Y' Y88888P 88   YD 
 {Style.RESET_ALL}''')
 
-os.system('color')
 
 cyk = CYK("./data/cnf.txt")
 func_cyk = CYK("./data/func_cnf.txt")
