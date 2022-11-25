@@ -3,3 +3,5 @@ const { name } = obj;
 const { age, id } = obj;
 
 const { name: personName } = obj;
+
+//https://stackoverflow.com/questions/41058569/what-is-the-difference-between-const-and-const-in-javascript

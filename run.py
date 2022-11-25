@@ -10,6 +10,7 @@ os.system('color')
 
 cyk = CYK("./data/cnf.txt")
 func_cyk = CYK("./data/func_cnf.txt")
+loopnswitch_cyk = CYK("./data/loopnswitch_cnf.txt")
 
 with open("./data/function_terminals.txt", 'r') as a:
     function_terminals = a.read().split()
@@ -18,6 +19,9 @@ with open("./data/terminals.txt", 'r') as a:
     terminals = a.read().split()
     terminals.append(' ')
     terminals.append(r'\n')
+
+with open("./data/loopnswitch_terminals.txt", 'r') as a:
+    loopnswitch_terminals = a.read().split()
 
 
 def print_duration(duration):
@@ -66,7 +70,11 @@ def function_check(w: str):
     func_words = inputreader.inputread(w, function_terminals)
     if not func_cyk.check(func_words):
         raise SyntaxError("Invalid function.")
-
+    
+def loopnswitch_check(w: str):
+    loopnswitch_words = inputreader.inputread(w, loopnswitch_terminals)
+    if not loopnswitch_cyk.check(loopnswitch_words):
+        raise SyntaxError("Invalid function.")
 
 parser = argparse.ArgumentParser(
     prog="Javascript Parser",

@@ -1,1 +1,1 @@
-const { bar } = foo;
+const { bar, foo } = 1;
