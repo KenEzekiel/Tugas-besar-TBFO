@@ -29,7 +29,32 @@ This project is a Formal Language and Automata Theory Project that implements a 
 ## Program Structure 
 
 ```
-
+│ .gitignore
+│ README.md
+│ cfg_to_cnf.py
+│ cfg.py
+│ cnf.py
+│ cyk.py
+│ driver_fa_mathexp.py
+│ driver_fa_var.py
+│ fa_mathexp.py
+│ fa_var.py
+│ fa.py
+│ inputreader.py
+│ run.py
+│
+├─── data
+│       │cfg.txt
+│       │cnf.txt
+│       │func_cfg.txt
+│       │func_cnf.txt
+│       │function_terminals.txt
+│       │loopnswitch_cfg.txt
+│       │loopnswitch_cnf.txt
+│       │loopnswitch_terminals.txt
+│       │terminals.txt
+│       
+├─── test
 ```
 
 ## How To Run
@@ -39,5 +64,5 @@ The program can be executed by following these steps:
 1. input the CFG in `data/CFG.txt` `data/func_cfg.txt` `data/loopnswitch_cfg.txt`
 2. convert the CFG to CNF by executing `python cfg_to_cnf.py` the CNF will be stored at `data/CNF.txt` `data/func_cnf.txt` `data/loopnswitch_cnf.txt`
 3. input test files into the `test` folder
-4. run the program by executing `run.py` then `filename.txt` or `test` to test the whole folder
+4. run the program by executing `run.py` then `./test/acc/filename.js` or `./test/err/filename.js` or `test/acc` or `./test/err` to test the whole accepted or error folder
 5. the program will output the result, whether it is accepted or rejected
