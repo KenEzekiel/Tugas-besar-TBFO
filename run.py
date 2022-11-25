@@ -49,8 +49,6 @@ def check_file(filename: str, count=None):
     start = time.time()
     try:
         fa_parsed = tokenize_with_fa(raw, terminals)
-        function_check(fa_parsed)
-        loopnswitch_check(fa_parsed)
     except SyntaxError as e:
         fail("Syntax Error\n")
         fail(e.message)
@@ -62,7 +60,16 @@ def check_file(filename: str, count=None):
     words = inputreader.inputread(processed, terminals)
     valid = cyk.check(words)
     if valid:
-        success("Accepted")
+        try:
+            function_check(processed)
+            loopnswitch_check(processed)
+            success("Accepted")
+        except SyntaxError as e:
+            fail("Syntax Error\n")
+            fail(e.message)
+            print_duration(time.time() - start)
+            print("\n")
+            return
     else:
         fail("Syntax Error")
     print_duration(time.time() - start)
@@ -80,13 +87,13 @@ def fail(message):
 def function_check(w: str):
     func_words = inputreader.inputread(w, function_terminals)
     if not func_cyk.check(func_words):
-        raise SyntaxError("Invalid function.")
+        raise SyntaxError("There is return outside function.")
 
 
 def loopnswitch_check(w: str):
     loopnswitch_words = inputreader.inputread(w, loopnswitch_terminals)
     if not loopnswitch_cyk.check(loopnswitch_words):
-        raise SyntaxError("Invalid loop or switch.")
+        raise SyntaxError("There is break outside switch or loop.")
 
 
 parser = argparse.ArgumentParser(
