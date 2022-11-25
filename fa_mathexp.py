@@ -48,8 +48,6 @@ def check_mathexp(string: str) -> bool:
         elif is_between_ops(c):
             c = 'between_ops'
 
-        # print(curr_state)
-        # print(c)
         if c in mathexp_transition_table[curr_state]:
             curr_state = mathexp_transition_table[curr_state][c]
         else:
