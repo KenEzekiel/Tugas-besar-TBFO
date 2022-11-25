@@ -10,7 +10,7 @@ class SyntaxError(Exception):
 
 
 def get_current_line(code: str, idx: int):
-    return code[:idx+1].count('\n') + 1
+    return code[:idx].count('\n') + 1
 
 
 def process_string(code: str):
