@@ -15,26 +15,26 @@ def is_dollar_underscore_letter (c: str) -> bool:
         return False
 
 def is_between_ops(c : str) -> bool:
-    if ((c == '/') or (c == '%') or (c == '&') or (c == '|') or (c == '^')):
+    if ((c == '/') or (c == '%') or (c == '^')):
         return True
     else:
         return False
-    
-mathexp_transition_table = {'Start': {'_': 'Start', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '~': 'after_hugging_operator'},
-                        'var': {' ': 'after_obj', 'number': 'var', 'DUL': 'var', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power'},
-                        'literal': {' ': 'after_obj', 'number': 'literal', '.': 'literal_with_point', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power'},
+
+mathexp_transition_table = {'Start': {' ': 'Start', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '~': 'after_hugging_operator', '!': 'after_hugging_operator'},
+                        'var': {' ': 'after_obj', 'number': 'var', 'DUL': 'var', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power', '|': 'wait_logical_or', '&': 'wait_logical_and'},
+                        'literal': {' ': 'after_obj', 'number': 'literal', '.': 'literal_with_point', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power', '|': 'wait_logical_or', '&': 'wait_logical_and'},
                         'literal_with_point_only': {'number': 'literal_with_point'},
-                        'literal_with_point': {' ': 'after_obj', 'number': 'literal_with_point', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power'},
-                        'after_obj': {' ': 'after_obj', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power'},
-                        'wait_power': {'*': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'literal_with_point': {' ': 'after_obj', 'number': 'literal_with_point', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power', '|': 'wait_logical_or', '&': 'wait_logical_and'},
+                        'after_obj': {' ': 'after_obj', 'between_ops': 'after_between_ops', '+': 'after_between_ops', '-': 'after_between_ops', '=': 'wait_equal', '!': 'wait_equal', '>': 'wait_gt', '<': 'wait_lt', '*': 'wait_power', '|': 'wait_logical_or', '&': 'wait_logical_and'},
+                        'wait_power': {'*': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
                         'wait_equal': {'=': 'wait_strict_equal'},
-                        'wait_strict_equal': {'=': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_gt': {'>': 'wait_rshift', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_rshift': {'>': 'after_betweenops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_lt': {'<': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_equal': {'=': 'after'},
-                        'wait_equal': {'=': 'after'},
-                        'after_between_ops': {' ': 'after_between_ops', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '~': 'after_hugging_operator'},
+                        'wait_strict_equal': {'=': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_gt': {'>': 'wait_rshift', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_rshift': {'>': 'after_betweenops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_lt': {'<': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_logical_and': {'&': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_logical_or': {'|': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'after_between_ops': {' ': 'after_between_ops', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '~': 'after_hugging_operator', '!': 'after_hugging_operator'},
                         'after_hugging_operator': {' ': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only'},
                         }
 
