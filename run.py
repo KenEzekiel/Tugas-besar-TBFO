@@ -101,6 +101,8 @@ print('\n')
 if is_folder:
     count = 1
     for filename in os.listdir(args.file_or_folder):
+        if os.path.isdir(os.path.join(args.file_or_folder, filename)):
+            continue
         check_file(os.path.join(args.file_or_folder, filename), count)
         count += 1
 else:
