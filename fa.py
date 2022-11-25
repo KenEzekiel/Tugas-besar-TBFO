@@ -86,9 +86,9 @@ def tokenize_with_fa(code: str, terminals: list[str]):
             '1' + res[match.end() + offset:]
         offset += 1 - len(num)
 
-    # change all true and false to 1
+    # change all true, false, null, and undefined to 1
     iter = re.finditer(
-        r'(?:[^a-zA-Z_$0-9]|^)((?:true)|(?:false))(?:[^a-zA-Z_$0-9]|$)', res)
+        r'(?:[^a-zA-Z_$0-9]|^)((?:true)|(?:false)|(?:null)|(?:undefined))(?:[^a-zA-Z_$0-9]|$)', res)
     offset = 0
     for match in iter:
         bool_str = match.group(1)

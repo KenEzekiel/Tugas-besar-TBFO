@@ -1,7 +1,7 @@
 import re
 
 # list of place that space is obligatory
-space_reg = r'((?:return)|(?:var)|(?:let)|(?:const)|(?:delete)|(?:function)|(?:case))(?:\s+)((?:[({\[]*\s*variable)|(?:[({\[]*\s*number))'
+space_reg = r'((?:return)|(?:var)|(?:let)|(?:const)|(?:delete)|(?:function)|(?:case)|(?:throw))(?:\s+)((?:[({\[]*\s*variable)|(?:[({\[]*\s*number))'
 
 
 def preprocessing(w: str):
