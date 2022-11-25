@@ -1,4 +1,3 @@
-import pprint
 import re
 
 # list of place that space is obligatory
