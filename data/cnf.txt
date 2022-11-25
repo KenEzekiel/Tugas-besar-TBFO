@@ -27,12 +27,12 @@ X -> Y W5 | Y X5 | X Y5 | W Z5 | W A6 | X6 B6 | Y6 C6 | X6 Z6 | Y W | Y C1 | W Y
 Y -> Y Y | ( | )
 Z -> ;
 A1 -> A1 A1 | space | newline
-B1 -> A7 A7 | / | B7 B7 | C7 C7 | D7 D6 | D7 E7 | F7 E7 | G7 E7 | + | * | - | & | or | E7 E7 | < | >
+B1 -> A7 A7 | / | B7 B7 | C7 C7 | D7 D6 | E7 D6 | E7 D7 | F7 D7 | G7 D7 | + | * | - | & | or | D7 D7 | < | >
 C1 -> number
 D1 -> H7 F5 | H7 I5
 E1 -> A1 F1
 F1 -> W G1
-G1 -> E7 H1
+G1 -> D7 H1
 H1 -> X Z
 I1 -> G H1
 J1 -> A1 K1
@@ -45,7 +45,7 @@ P1 -> W6 Q1
 Q1 -> D R1
 R1 -> A1 S1
 S1 -> W T1
-T1 -> E7 U1
+T1 -> D7 U1
 U1 -> X V1
 V1 -> Z W1
 W1 -> X X1
@@ -59,7 +59,7 @@ D2 -> W6 E2
 E2 -> D F2
 F2 -> A1 G2
 G2 -> W H2
-H2 -> E7 I2
+H2 -> D7 I2
 I2 -> X J2
 J2 -> Z K2
 K2 -> X L2
@@ -159,7 +159,7 @@ Z5 -> N7 N7
 A6 -> O7 O7
 B6 -> K Z6
 C6 -> V I7
-D6 -> E7 E7
+D6 -> D7 D7
 E6 -> break
 F6 -> continue
 G6 -> for
@@ -185,8 +185,8 @@ Z6 -> ]
 A7 -> *
 B7 -> &
 C7 -> or
-D7 -> !
-E7 -> =
+D7 -> =
+E7 -> !
 F7 -> <
 G7 -> >
 H7 -> default

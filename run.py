@@ -49,6 +49,7 @@ def check_file(filename: str, count=None):
     try:
         fa_parsed = tokenize_with_fa(raw, terminals)
         function_check(fa_parsed)
+        loopnswitch_check(fa_parsed)
     except SyntaxError as e:
         fail("Syntax Error\n")
         fail(e.message)
@@ -84,7 +85,7 @@ def function_check(w: str):
 def loopnswitch_check(w: str):
     loopnswitch_words = inputreader.inputread(w, loopnswitch_terminals)
     if not loopnswitch_cyk.check(loopnswitch_words):
-        raise SyntaxError("Invalid function.")
+        raise SyntaxError("Invalid loop or switch.")
 
 
 parser = argparse.ArgumentParser(

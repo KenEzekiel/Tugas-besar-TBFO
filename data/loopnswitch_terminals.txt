@@ -1,1 +1,1 @@
-\( \) { } for switch while break continue e
+\( \) { } for switch while break continue
