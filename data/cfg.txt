@@ -15,7 +15,7 @@ FINALLY -> finally { OPTSTART }
 FOR -> for ( VARLETCONST SPACE VAR = MATHEXP SEMICOLON MATHEXP SEMICOLON MATHEXP ) { OPTSTART } | for ( VAR = MATHEXP SEMICOLON MATHEXP SEMICOLON MATHEXP ) { OPTSTART }
 FUNCTION -> function SPACE variable ( PARAMREST ) { OPTSTART } | function SPACE variable ( ) { OPTSTART } braces
 IF -> if ( MATHEXP ) { START } ELSE
-MATHEXP -> ( MATHEXP ) | VAR | NUMBER | MATHEXP OPERATORS MATHEXP | VAR + + | VAR - - | [ ARGUMENT ] | { OBJECT }
+MATHEXP -> ! MATHEXP | ( MATHEXP ) | VAR | NUMBER | MATHEXP OPERATORS MATHEXP | VAR + + | VAR - - | [ ARGUMENT ] | { OBJECT }
 NUMBER -> number
 OBJECT -> OBJECT , OBJECT | number : MATHEXP | variable : MATHEXP | variable
 OPERATORS -> + | * | * * | - | / | % | & & | & | or or | or | ^ | = = | = = = | ! = = | ! = | < | > | < = | > = | ? ? | < < | > > | > > >

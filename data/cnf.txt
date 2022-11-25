@@ -1,9 +1,9 @@
-START' -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Y7 U1 | X7 Y1 | Y7 V1
-START -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Y7 U1 | X7 Y1 | Y7 V1
-A -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Y7 U1 | X7 Y1 | Y7 V1
-B -> B F1 | Z6 G1 | B A7 | W7 M5 | Q N5 | C1 O5 | C1 P5 | X7 Q5 | Y7 R5 | X7 Z7 | A7 B | , | C1 S6 | C1 K1 | W7 U6 | C1 V6 | C1 X6 | variable | number
-C -> C I1 | Z6 J1 | C1 S6 | C1 K1 | W7 U6 | C1 V6 | C1 X6 | variable
-D -> D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | Q X | Y7 U1 | X7 Y1 | Y7 V1
+START' -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Z7 U1 | Y7 Y1 | Z7 V1
+START -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Z7 U1 | Y7 Y1 | Z7 V1
+A -> START START | D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | T7 C3 | T7 M3 | T7 N3 | T7 X3 | V7 Y4 | V7 E5 | V7 H5 | V7 L5 | J8 Y6 | J8 L5 | U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4 | Y Y | space | newline | L7 X | M7 X | F8 Y2 | F8 X | G8 A6 | G8 L5 | Q X | Z7 U1 | Y7 Y1 | Z7 V1
+B -> B F1 | Z6 G1 | B A7 | W7 Q | X7 M5 | Q N5 | C1 O5 | C1 P5 | Y7 Q5 | Z7 R5 | Y7 A8 | A7 B | , | C1 S6 | C1 K1 | X7 U6 | C1 V6 | C1 X6 | variable | number
+C -> C I1 | Z6 J1 | C1 S6 | C1 K1 | X7 U6 | C1 V6 | C1 X6 | variable
+D -> D1 L1 | C1 P1 | D1 Q1 | D1 S1 | D1 W1 | D1 A2 | Q X | Z7 U1 | Y7 Y1 | Z7 V1
 E -> B7 C7 | D7 C7 | E7 C7 | F7 C2 | G7 C7 | H7 D2 | I7 E2 | J7 C7 | K7 F2 | C7 G2 | C7 H2 | C7 I2 | = | F7 C7 | H7 C7 | I7 C7
 F -> L7 X | M7 X
 G -> N7 J2 | N7 O2
@@ -16,10 +16,10 @@ M -> S7 M2 | S7 R2
 N -> T7 C3 | T7 M3 | T7 N3 | T7 X3
 O -> U7 Y3 | U7 C4 | U7 J4 | U7 N4 | U7 S4 | U7 V4
 P -> V7 Y4 | V7 E5 | V7 H5 | V7 L5
-Q -> W7 M5 | Q N5 | C1 O5 | C1 P5 | X7 Q5 | Y7 R5 | X7 Z7 | C1 S6 | C1 K1 | W7 U6 | C1 V6 | C1 X6 | variable | number
+Q -> W7 Q | X7 M5 | Q N5 | C1 O5 | C1 P5 | Y7 Q5 | Z7 R5 | Y7 A8 | C1 S6 | C1 K1 | X7 U6 | C1 V6 | C1 X6 | variable | number
 R -> number
-S -> S S5 | A8 T5 | B8 T5 | variable
-T -> F7 F7 | H7 H7 | I7 I7 | C7 U5 | C8 U5 | C8 C7 | D8 C7 | E8 C7 | K7 K7 | + | * | - | / | % | & | or | ^ | C7 C7 | < | > | D8 D8 | E8 E8 | E8 H2
+S -> S S5 | B8 T5 | C8 T5 | variable
+T -> F7 F7 | H7 H7 | I7 I7 | C7 U5 | W7 U5 | W7 C7 | D8 C7 | E8 C7 | K7 K7 | + | * | - | / | % | & | or | ^ | C7 C7 | < | > | D8 D8 | E8 E8 | E8 H2
 U -> U V5 | variable
 V -> U W5 | U V5 | variable
 W -> F8 Y2 | F8 X
@@ -28,7 +28,7 @@ Y -> Y Y | space | newline
 Z -> G8 A6 | G8 L5
 A1 -> H8 Y2
 B1 -> I8 F6 | I8 J6 | I8 M6 | I8 P6 | I8 Q6 | I8 R6
-C1 -> C1 S6 | C1 K1 | W7 U6 | C1 V6 | C1 X6 | variable
+C1 -> C1 S6 | C1 K1 | X7 U6 | C1 V6 | C1 X6 | variable
 D1 -> var | let | const
 E1 -> J8 Y6 | J8 L5
 F1 -> A7 B
@@ -45,15 +45,15 @@ P1 -> E O1
 Q1 -> Y R1
 R1 -> C1 X
 S1 -> Y T1
-T1 -> Y7 U1
+T1 -> Z7 U1
 U1 -> V V1
 V1 -> K8 N1
 W1 -> Y X1
-X1 -> X7 Y1
+X1 -> Y7 Y1
 Y1 -> C Z1
-Z1 -> Z7 N1
+Z1 -> A8 N1
 A2 -> Y B2
-B2 -> Y7 V1
+B2 -> Z7 V1
 C2 -> F7 C7
 D2 -> H7 C7
 E2 -> I7 C7
@@ -64,23 +64,23 @@ I2 -> E8 H2
 J2 -> Y K2
 K2 -> Q L2
 L2 -> L8 M2
-M2 -> Y7 N2
+M2 -> Z7 N2
 N2 -> A K8
 O2 -> Y P2
 P2 -> Q Q2
 Q2 -> L8 R2
-R2 -> Y7 K8
-S2 -> W7 T2
-T2 -> B8 U2
+R2 -> Z7 K8
+S2 -> X7 T2
+T2 -> C8 U2
 U2 -> M8 M2
-V2 -> W7 W2
-W2 -> B8 X2
+V2 -> X7 W2
+W2 -> C8 X2
 X2 -> M8 R2
 Y2 -> Y O1
-Z2 -> Y7 A3
+Z2 -> Z7 A3
 A3 -> START K8
 B3 -> Y P
-C3 -> W7 D3
+C3 -> X7 D3
 D3 -> D1 E3
 E3 -> Y F3
 F3 -> C1 G3
@@ -90,8 +90,8 @@ I3 -> X J3
 J3 -> Q K3
 K3 -> X L3
 L3 -> Q U2
-M3 -> W7 F3
-N3 -> W7 O3
+M3 -> X7 F3
+N3 -> X7 O3
 O3 -> D1 P3
 P3 -> Y Q3
 Q3 -> C1 R3
@@ -101,52 +101,52 @@ T3 -> X U3
 U3 -> Q V3
 V3 -> X W3
 W3 -> Q X2
-X3 -> W7 Q3
+X3 -> X7 Q3
 Y3 -> Y Z3
-Z3 -> B8 A4
-A4 -> W7 B4
+Z3 -> C8 A4
+A4 -> X7 B4
 B4 -> V U2
 C4 -> Y D4
-D4 -> B8 E4
-E4 -> W7 F4
+D4 -> C8 E4
+E4 -> X7 F4
 F4 -> M8 G4
-G4 -> Y7 H4
+G4 -> Z7 H4
 H4 -> A I4
 I4 -> K8 N8
 J4 -> Y K4
-K4 -> B8 L4
-L4 -> W7 M4
+K4 -> C8 L4
+L4 -> X7 M4
 M4 -> V X2
 N4 -> Y O4
-O4 -> B8 P4
-P4 -> W7 Q4
+O4 -> C8 P4
+P4 -> X7 Q4
 Q4 -> M8 R4
-R4 -> Y7 I4
+R4 -> Z7 I4
 S4 -> Y T4
-T4 -> B8 U4
-U4 -> W7 U2
+T4 -> C8 U4
+U4 -> X7 U2
 V4 -> Y W4
-W4 -> B8 X4
-X4 -> W7 X2
-Y4 -> W7 Z4
+W4 -> C8 X4
+X4 -> X7 X2
+Y4 -> X7 Z4
 Z4 -> Q A5
 A5 -> M8 B5
-B5 -> Y7 C5
+B5 -> Z7 C5
 C5 -> START D5
 D5 -> K8 L
-E5 -> W7 F5
+E5 -> X7 F5
 F5 -> Q G5
 G5 -> M8 Z2
-H5 -> W7 I5
+H5 -> X7 I5
 I5 -> Q J5
 J5 -> M8 K5
-K5 -> Y7 D5
-L5 -> W7 W3
+K5 -> Z7 D5
+L5 -> X7 W3
 M5 -> Q M8
 N5 -> T Q
 O5 -> B7 B7
 P5 -> D7 D7
-Q5 -> B Z7
+Q5 -> B A8
 R5 -> S K8
 S5 -> A7 S
 T5 -> L8 Q
@@ -155,32 +155,32 @@ V5 -> A7 U
 W5 -> A7 X5
 X5 -> Z6 Y5
 Y5 -> Z6 Z5
-Z5 -> Z6 B8
-A6 -> W7 B6
+Z5 -> Z6 C8
+A6 -> X7 B6
 B6 -> Q C6
 C6 -> M8 D6
-D6 -> Y7 E6
+D6 -> Z7 E6
 E6 -> H K8
-F6 -> Y7 G6
+F6 -> Z7 G6
 G6 -> A H6
 H6 -> K8 I6
 I6 -> I M
-J6 -> Y7 K6
+J6 -> Z7 K6
 K6 -> A L6
 L6 -> K8 I
-M6 -> Y7 N6
+M6 -> Z7 N6
 N6 -> A O6
 O6 -> K8 M
-P6 -> Y7 H6
-Q6 -> Y7 L6
-R6 -> Y7 O6
-S6 -> W7 T6
+P6 -> Z7 H6
+Q6 -> Z7 L6
+R6 -> Z7 O6
+S6 -> X7 T6
 T6 -> B M8
 U6 -> C1 M8
-V6 -> X7 W6
-W6 -> Q Z7
-X6 -> W7 M8
-Y6 -> W7 L3
+V6 -> Y7 W6
+W6 -> Q A8
+X6 -> X7 M8
+Y6 -> X7 L3
 Z6 -> .
 A7 -> ,
 B7 -> +
@@ -204,13 +204,13 @@ S7 -> finally
 T7 -> for
 U7 -> function
 V7 -> if
-W7 -> (
-X7 -> [
-Y7 -> {
-Z7 -> ]
-A8 -> number
-B8 -> variable
-C8 -> !
+W7 -> !
+X7 -> (
+Y7 -> [
+Z7 -> {
+A8 -> ]
+B8 -> number
+C8 -> variable
 D8 -> <
 E8 -> >
 F8 -> return
