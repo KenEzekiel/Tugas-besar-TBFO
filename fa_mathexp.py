@@ -29,13 +29,13 @@ mathexp_transition_table = {'Start': {' ': 'Start', 'DUL': 'var', 'number': 'lit
                         'wait_power': {'*': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
                         'wait_equal': {'=': 'wait_strict_equal'},
                         'wait_strict_equal': {'=': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_gt': {'>': 'wait_rshift', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_rshift': {'>': 'after_betweenops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
-                        'wait_lt': {'<': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_gt': {'>': 'wait_rshift', ' ': 'after_between_ops', '=': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_rshift': {'>': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
+                        'wait_lt': {'<': 'after_between_ops', ' ': 'after_between_ops', '=': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
                         'wait_logical_and': {'&': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
                         'wait_logical_or': {'|': 'after_between_ops', ' ': 'after_between_ops', '~': 'after_hugging_operator', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal'},
                         'after_between_ops': {' ': 'after_between_ops', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only', '+': 'after_hugging_operator', '-': 'after_hugging_operator', '~': 'after_hugging_operator', '!': 'after_hugging_operator'},
-                        'after_hugging_operator': {' ': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only'},
+                        'after_hugging_operator': {' ': 'after_hugging_operator', '!': 'after_hugging_operator', 'DUL': 'var', 'number': 'literal', '.': 'literal_with_point_only'},
                         }
 
 def check_mathexp(string: str) -> bool:
@@ -53,7 +53,7 @@ def check_mathexp(string: str) -> bool:
         else:
             print(f"Error karena memasukkan {c} pada state {curr_state}")
             return False
-    if (curr_state == 'literal' or curr_state == 'literal_with_point' or curr_state == 'var'):
+    if (curr_state == 'literal' or curr_state == 'literal_with_point' or curr_state == 'var' or curr_state == 'after_obj'):
         return True
     else:
         print(f"Masih berada di state {curr_state}")
