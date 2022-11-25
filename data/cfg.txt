@@ -26,6 +26,6 @@ MATHEXP -> BRACKET VAR BRACKET | BRACKET NUMBER BRACKET | MATHEXP OPERATORS MATH
 BRACKET -> BRACKET BRACKET | ( | ) | e
 SEMICOLON -> ; 
 SPACE -> SPACE SPACE | space | newline
-OPERATORS -> + | * | * * | - | / | & & | & | or or | or | = = | = = | ! = = | ! = | < | > | < = | > =
+OPERATORS -> + | * | * * | - | / | & & | & | or or | or | = = | = = = | ! = = | ! = | < | > | < = | > =
 NUMBER -> number
 DEFAULT -> default : { OPTSTART }
