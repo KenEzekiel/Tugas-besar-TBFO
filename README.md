@@ -66,3 +66,7 @@ The program can be executed by following these steps:
 3. input test files into the `test` folder
 4. run the program by executing `run.py` then `./test/acc/filename.js` or `./test/err/filename.js` or `test/acc` or `./test/err` to test the whole accepted or error folder
 5. the program will output the result, whether it is accepted or rejected
+
+1. To run the driver for FA checking for variable name checking and math expression, do `python driver_fa_mathexp.py` for math expression, and `python driver_fa_var.py` for variable name checking
+2. The program will ask for an input of variable name or mathematical expression
+3. After the input is provided, the program will output whether it is a valid variable name or mathematical expression
