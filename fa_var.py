@@ -1,6 +1,8 @@
-def isletter(c: str) -> True:
+def isletter(c: str) -> bool:
     if ((65 <= ord(c) and ord(c) <= 90) or (97 <= ord(c) and ord(c) <= 122)):
         return True
+    else:
+        return False
     
 def isNumber(c: str) -> bool:
     if ((48 <= ord(c) and ord(c) <= 57)):
@@ -14,9 +16,11 @@ def isDollarUnderscoreLetter (c: str) -> bool:
     else:
         return False
 
-var_transition_table = {'Start': {'DUL': 'p1' }, 'p1': {'number': 'p1', 'DUL': 'p1'}}
+var_transition_table = {'Start': {'DUL': 'var' }, 
+                        'var': {'number': 'var', 'DUL': 'var'}
+                        }
 
-def check_variable_name_valid(string: str) -> bool:
+def check_fa_var(string: str) -> bool:
     curr_state = 'Start'
     for c in string:
         if isNumber(c):
@@ -27,6 +31,10 @@ def check_variable_name_valid(string: str) -> bool:
         if c in var_transition_table[curr_state]:
             curr_state = var_transition_table[curr_state][c]
         else:
-            print("syntax error: variable name")
+            print(f"Error karena memasukkan {c} pada state {curr_state}")
             return False
-    return True
+    if (curr_state == 'var'):
+        return True
+    else:
+        print(f"Masih berada di state {curr_state}")
+        return False
