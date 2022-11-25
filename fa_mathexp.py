@@ -48,12 +48,12 @@ def check_mathexp(string: str) -> bool:
         elif is_between_ops(c):
             c = 'between_ops'
 
-        print(curr_state)
-        print(c)
+        # print(curr_state)
+        # print(c)
         if c in mathexp_transition_table[curr_state]:
             curr_state = mathexp_transition_table[curr_state][c]
         else:
-            print("syntax error: variable name")
+            print(f"Error karena memasukkan {c} pada state {curr_state}")
             return False
     if (curr_state == 'literal' or curr_state == 'literal_with_point' or curr_state == 'var'):
         return True
